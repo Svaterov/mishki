@@ -188,3 +188,50 @@ class ProductSeeder extends Seeder
         }
     }
 }
+
+namespace Database\Seeders;
+
+use App\Models\Product;
+use Illuminate\Database\Seeder;
+
+class ProductSeeder extends Seeder
+{
+    public function run()
+    {
+        $products = [
+            // ... существующие автомобили и мотоциклы ...
+
+            // НОВЫЕ ПОСТУПЛЕНИЯ - МОТОЦИКЛЫ
+            [
+                'title' => 'KTM 390 Duke 2024',
+                'description' => 'Новое поступление! Легкий и маневренный нейкед байк. Современный дизайн, ABS, LED освещение.',
+                'price' => 620000,
+                'type' => 'motorcycle',
+                'brand' => 'KTM',
+                'model' => '390 Duke',
+                'year' => 2024,
+                'engine' => '373cc',
+                'color' => 'Оранжевый',
+                'image' => 'ktm-390-duke.jpg',
+                'created_at' => now()->subDays(2) // Новое поступление
+            ],
+            [
+                'title' => 'Honda CB650R 2024',
+                'description' => 'Новое поступление! Премиум нейкед с 4-цилиндровым двигателем. Неоново-желтый цвет, полная LED оптика.',
+                'price' => 890000,
+                'type' => 'motorcycle',
+                'brand' => 'Honda',
+                'model' => 'CB650R',
+                'year' => 2024,
+                'engine' => '649cc',
+                'color' => 'Неоново-желтый',
+                'image' => 'honda-cb650r.jpg',
+                'created_at' => now()->subDays(1) // Новое поступление
+            ]
+        ];
+
+        foreach ($products as $product) {
+            Product::create($product);
+        }
+    }
+}
